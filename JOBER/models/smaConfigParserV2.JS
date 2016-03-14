@@ -205,7 +205,8 @@ var   configReader=function(usersObject,users,dbConnector){
 		if(menusObjectJSON != undefined){
 					async.forEach(menusObjectJSON[0]['menu_item'],function(menu_item,callback){
 						initPanelItems(menu_item,actionQueriesObject,function(panelItemsObject){
-								var currentMenuItem=new usersObject.menuItem(menu_item.screen_name,
+								var currentMenuItem=new usersObject.menuItem(menu_item.type,
+																	  menu_item.screen_name,
 																	  menu_item.screen_page[0].page_title,
 																	  menu_item.screen_page[0].page_view_name,
 																	  panelItemsObject,defaultDataSetSQL																	  
@@ -214,6 +215,7 @@ var   configReader=function(usersObject,users,dbConnector){
 								if(menu_item.sub_elements!=undefined){
 									for(var subelement in menu_item.sub_elements[0].sub_element){
 										currentMenuItem.subElementList.push(new usersObject.menuItem(
+												menu_item.sub_elements[0].sub_element[subelement].type,
 												menu_item.sub_elements[0].sub_element[subelement].screen_name,
 												menu_item.sub_elements[0].sub_element[subelement].page_title,
 												menu_item.sub_elements[0].sub_element[subelement].page_view_name,

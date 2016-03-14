@@ -150,7 +150,8 @@ var userPoolObject=function(sessionGUID,userGUID,activeUserLevel,activePage){
 }
 
 //___________________________HELPERS_________________________________________
-var menuItem=function(screenName,pageTitle,viewName,panelItems,defaultDataSetQuery){
+var menuItem=function(itemType,screenName,pageTitle,viewName,panelItems,defaultDataSetQuery){
+	this.itemType=itemType;
 	this.screenName=screenName;
 	this.systemName=screenName;
 	this.pageTitle=pageTitle;
